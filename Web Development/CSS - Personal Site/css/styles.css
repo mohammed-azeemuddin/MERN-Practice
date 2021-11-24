@@ -1,19 +1,39 @@
 body {
+  color: #40514E;
+  font-family: 'Merriweather', serif;
   margin: 0;
   text-align: center;
-  font-family: 'Merriweather', serif;
+}
+
+a {
+  color: #11999E;
 }
 
 h1 {
-  margin-top: 0;
+  color: #66BFBF;
+  /* 1em = 16px; */
+  /* 90px = 5.625em */
+  /* rem - (root em ) ignores the parent size and only focus on current size */
   font-family: 'Sacramento', cursive;
+  font-size: 5.625rem;
+  /* top right bottom left */
+  margin: 50px auto auto auto;
 }
 
 h2 {
+  /* rem - (root em ) ignores the parent size and only focus on current size */
+  /* remember , rem is same as em but ignores the root default size */
+  /* 1em = 16px; */
+  /* therefore , 40px = 16/40 = 2.5px */
+  color: #66BFBF;
   font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  font-weight: normal;
+  padding-bottom: 10px;
 }
 
 h3 {
+  color: #11999E;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -35,10 +55,27 @@ h3 {
   padding-top: 100px;
 }
 
-.middle-container {
+.middle-container {}
+
+.bottom-container {}
+
+.skill-row{
+  width: 50%;
+  margin: 100px auto 100px auto;
+  text-align: left;
+  line-height: 2;
 }
 
-.bottom-container {
+.code-img{
+  float:left;
+  margin-right: 30px;
+  width: 25%;
+}
+
+.chilli-img{
+  float: right;
+  margin-left: 30px;
+  width: 25%;
 }
 
 .pro {
