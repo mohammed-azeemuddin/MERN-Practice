@@ -10,6 +10,17 @@ body {
   padding: 7% 15%;
 }
 
+/* Sections */
+
+.colored-section {
+  background-color: #ff4c68;
+  color: #fff;
+}
+
+.white-section {
+  background-color: #fff;
+}
+
 h1,h2,h3,h4,h5,h6 {
   font-family: 'Montserrat',sans-serif;
   font-weight: 900;
@@ -64,17 +75,11 @@ p {
 }
 
 /* Title Section */
-
-#title {
-  background-color: #ff4c68;
-  color: #fff;
-  text-align: left;
-}
-
 /* For the container fluid class present in the title section */
 
 #title .container-fluid {
   padding: 3% 15% 7%;
+  text-align: left;
 }
 
 /* Title Image */
@@ -89,7 +94,6 @@ p {
 /* Features */
 
 #features {
-  background-color: #fff;
   position: relative;
 }
 
@@ -114,7 +118,6 @@ p {
 
 #testimonials {
   background-color: #ef8172;
-  color: #fff;
 }
 
 .testimonial-text {
@@ -153,14 +156,6 @@ p {
 .pricing-column {
   padding: 3% 2%;
 }
-
-/* Call To Action Section */
-
-#cta {
-  background-color: #ff4c68;
-  color: #fff;
-}
-
 
 /* Footer Section*/
 
