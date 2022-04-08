@@ -1,44 +1,49 @@
-//jshint esversion:6
-const MongoClient = require('mongodb').MongoClient;
-const assert = require('assert');
+//require the Mongoose package (after running >npm i mongoose in Hyper to install it)
+const mongoose = require('mongoose');
 
-// Connection URL
-const url = 'mongodb://localhost:27017';
+//connect to MongoDB by specifying port to access MongoDB server
+main().catch(err => console.log(err));
 
-// Database Name
-const dbName = 'fruitsDB';
+async function main() {
+  await mongoose.connect('mongodb://localhost:27017/FruitsDB');
+  }
 
-// Create a new MongoClient
-const client = new MongoClient(url, {useUnifiedTopology: true});
+//create a SCHEMA that sets out the fields each document will have and their datatypes
+const fruitSchema = new mongoose.Schema ({
+	name: String,
+	rating: Number,
+	review: String
+})
 
-// Use connect method to connect to the Server
-client.connect(function(err) {
-  assert.equal(null, err);
-  console.log("Connected successfully to server");
-  const db = client.db(dbName);
-  insertDocuments(db, function() {
-      client.close();
-  });
+//create a MODEL
+const Fruit = new mongoose.model ("Fruit", fruitSchema)
+
+//create a DOCUMENT
+const fruit = new Fruit ({
+	name: "Apple",
+	rating: 7,
+	review: "Great!"
+})
+
+//save the document
+fruit.save()
+
+//**CHALLENGE: Set up a people database with one document and two fields**//
+//create a SCHEMA
+const personSchema = new mongoose.Schema({
+  name: String,
+  age: Number,
 });
 
-const insertDocuments = function(db, callback) {
-  // Get the documents collection
-  const collection = db.collection('fruits');
-  // Insert some documents
-  collection.insertMany([
+//create a MODEL
+const Person = mongoose.model('Person', personSchema);
 
-     {name : "Apple", score: 8, review: "Great fruit"}, {name : "Orange", score: 6, review: "Kinda sour"}, {name : "Banana", score: 9, review: "Great stuff!"}
+//create a DOCUMENT
+const person = new Person({
+  name: "John",
+  age: 37
+});
 
-  ], function(err, result) {
-
-    assert.equal(err, null);
-    assert.equal(3,result.insertedCount);
-    assert.equal(3,Object.keys(result.insertedIds).length);
-
-    console.log("Inserted 3 documents into the collection");
-
-    callback(result);
-
-  });
-
-}
+//Save it
+person.save();
+ 
